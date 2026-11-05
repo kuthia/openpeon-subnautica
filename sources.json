@@ -1,31 +1,44 @@
 {
   "source_release": "https://github.com/rachit9876/subnautica-all-audio/releases/tag/v83031",
   "dialogue_reference": "https://subnautica.fandom.com/wiki/Dialogue_(Subnautica)",
-  "note": "Dialogue mappings follow the wiki; audio bytes are unmodified WAV members from the public v83031 audio archive.",
+  "voice": "subnautica_pda",
+  "note": "Original Subnautica PDA dialogue only. All assets come from the Player audio bank. Four excerpts preserve selected PCM frames; source and output checksums are recorded separately.",
   "assets": [
     {
       "category": "session.start",
-      "file": "sounds/welcome_aboard.wav",
-      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:SeamothWelcome.ogg",
+      "file": "sounds/good_luck.wav",
+      "voice": "subnautica_pda",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/Dialogue_(Subnautica)#Introduction",
       "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
-      "member": "Player[0]/wecome_1.wav",
-      "offset": 721893699,
-      "compressed_size": 265249,
-      "size": 297302,
-      "crc32": "0ba0d6ca",
-      "sha256": "84901793bc46425e8f6a14f2447b65406a30dcd2b0f6a7af29d2fe73d5909209"
+      "member": "Player[0]/Goal_PDALoading_555 effect.wav",
+      "offset": 471983590,
+      "compressed_size": 2661187,
+      "source_size": 3701814,
+      "source_crc32": "8ee1ac9e",
+      "source_sha256": "b26dbbbfcba2f5b5272b6223ed7bbc4b48c8dbfc7667a9c06959d683568468a7",
+      "trim": {
+        "start_frame": 883200,
+        "end_frame": 921600
+      },
+      "size": 153644,
+      "crc32": "0b32e7e2",
+      "sha256": "6827a5584dd0e7652b6e2e428c8cda1db5c47c92599de5f0aafe9ef3b62a14c0"
     },
     {
       "category": "task.acknowledge",
-      "file": "sounds/engine_powering_up.wav",
-      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsEngineOn.ogg",
-      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
-      "member": "Cyclops[0]/AI_engine_up.wav",
-      "offset": 303471536,
-      "compressed_size": 402971,
-      "size": 439042,
-      "crc32": "bb008c65",
-      "sha256": "dea4076096d45d4c3d66ed2a39d880ed2969c626d69256f1af9ada4aa1efb5d0"
+      "file": "sounds/integrating_data.wav",
+      "voice": "subnautica_pda",
+      "dialogue_reference": "https://subnauticamodding.github.io/Nautilus/api/Nautilus.Handlers.PDAHandler.html",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/integrating.wav",
+      "offset": 521390130,
+      "compressed_size": 378738,
+      "source_size": 407646,
+      "source_crc32": "e2f91a30",
+      "source_sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7",
+      "size": 407646,
+      "crc32": "e2f91a30",
+      "sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7"
     },
     {
       "category": "task.complete",
@@ -37,31 +50,51 @@
       "compressed_size": 293517,
       "size": 341282,
       "crc32": "05874b03",
-      "sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533"
+      "sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533",
+      "source_size": 341282,
+      "source_crc32": "05874b03",
+      "source_sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533",
+      "voice": "subnautica_pda"
     },
     {
       "category": "task.error",
-      "file": "sounds/fire_detected.wav",
-      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsFireDetected.ogg",
-      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
-      "member": "Cyclops[0]/fire_detected.wav",
-      "offset": 374547017,
-      "compressed_size": 383581,
-      "size": 434822,
-      "crc32": "0bb49e68",
-      "sha256": "1a55acd3df8adfddfc457d1e21a444c24459237dd23565aa81e6fe723a1d265a"
+      "file": "sounds/cannot_build_here.wav",
+      "voice": "subnautica_pda",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/Mobile_Vehicle_Bay",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/cantbuild 2.wav",
+      "offset": 129236944,
+      "compressed_size": 530650,
+      "source_size": 703106,
+      "source_crc32": "08428e99",
+      "source_sha256": "ce42f1b6f02f2e0d72ef5f055359f290e30b502756dda96ae3e288a34d1d1730",
+      "trim": {
+        "start_frame": 0,
+        "end_frame": 57600
+      },
+      "size": 230444,
+      "crc32": "b89e5ac0",
+      "sha256": "304b053a84226993fb954573b16652a23629f0206db45348d9a9dbcacad36e5e"
     },
     {
       "category": "input.required",
-      "file": "sounds/new_message.wav",
-      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:RadioNewMessage.ogg",
+      "file": "sounds/self_scan_advised.wav",
+      "voice": "subnautica_pda",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/PDA",
       "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
-      "member": "Pod[0]/radio_msg_voice.wav",
-      "offset": 759384102,
-      "compressed_size": 382603,
-      "size": 468422,
-      "crc32": "4736bf83",
-      "sha256": "44fd7e81dd26ec54a39a2609d42ff5078c5ccacfdd7d46f0bd78fb763f784ca1"
+      "member": "Player[0]/AdviseSelfScan.wav",
+      "offset": 106801145,
+      "compressed_size": 994080,
+      "source_size": 1176542,
+      "source_crc32": "c2318e0d",
+      "source_sha256": "60378c86a609ef2bcece32582aa70c16cd2523c67141fb9a9a7b167a708db548",
+      "trim": {
+        "start_frame": 182400,
+        "end_frame": 294124
+      },
+      "size": 446940,
+      "crc32": "32ed84d7",
+      "sha256": "9f905df302513212e6981a43d2a0e14079adc0350a851da1895d46577cb39ead"
     },
     {
       "category": "resource.limit",
@@ -73,19 +106,31 @@
       "compressed_size": 173025,
       "size": 252750,
       "crc32": "e63d485e",
-      "sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf"
+      "sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf",
+      "source_size": 252750,
+      "source_crc32": "e63d485e",
+      "source_sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf",
+      "voice": "subnautica_pda"
     },
     {
       "category": "user.spam",
-      "file": "sounds/silent_running.wav",
-      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsSilentRunning.ogg",
-      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
-      "member": "Cyclops[0]/silent_running.wav",
-      "offset": 423895695,
-      "compressed_size": 366092,
-      "size": 406634,
-      "crc32": "44e7b0a1",
-      "sha256": "0fab1695749f2f43d9b480fa7716f6800b61cb815cc3a1a7babb122e1ff081c4"
+      "file": "sounds/take_a_seat.wav",
+      "voice": "subnautica_pda",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/Dialogue_(Subnautica)#Habitat_Compartments",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/Goal_Bench.wav",
+      "offset": 392173383,
+      "compressed_size": 1491375,
+      "source_size": 1975862,
+      "source_crc32": "cb8e78e3",
+      "source_sha256": "222172ed89479482fa9d338fe1d57952132c3b0875a64bd39701412aed520d8f",
+      "trim": {
+        "start_frame": 124800,
+        "end_frame": 249600
+      },
+      "size": 499244,
+      "crc32": "1a076313",
+      "sha256": "0490077f29147ddfd413d7782938d058c4016084ad7e901879ec46f832a9c14d"
     }
   ]
 }

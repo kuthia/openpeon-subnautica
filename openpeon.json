@@ -1,9 +1,9 @@
 {
   "cesp_version": "1.0",
   "name": "subnautica_ai",
-  "display_name": "Subnautica AI",
-  "version": "1.0.0",
-  "description": "Seven Subnautica PDA and vehicle AI voice notifications.",
+  "display_name": "Subnautica PDA",
+  "version": "1.1.0",
+  "description": "Seven notifications using the original Subnautica PDA voice, including the original Oxygen warning.",
   "author": {
     "name": "kuthia",
     "github": "kuthia"
@@ -21,18 +21,18 @@
     "session.start": {
       "sounds": [
         {
-          "file": "sounds/welcome_aboard.wav",
-          "label": "Welcome aboard captain.",
-          "sha256": "84901793bc46425e8f6a14f2447b65406a30dcd2b0f6a7af29d2fe73d5909209"
+          "file": "sounds/good_luck.wav",
+          "label": "Good luck.",
+          "sha256": "6827a5584dd0e7652b6e2e428c8cda1db5c47c92599de5f0aafe9ef3b62a14c0"
         }
       ]
     },
     "task.acknowledge": {
       "sounds": [
         {
-          "file": "sounds/engine_powering_up.wav",
-          "label": "Engine powering up...",
-          "sha256": "dea4076096d45d4c3d66ed2a39d880ed2969c626d69256f1af9ada4aa1efb5d0"
+          "file": "sounds/integrating_data.wav",
+          "label": "Integrating new PDA data.",
+          "sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7"
         }
       ]
     },
@@ -48,18 +48,18 @@
     "task.error": {
       "sounds": [
         {
-          "file": "sounds/fire_detected.wav",
-          "label": "Warning: fire detected!",
-          "sha256": "1a55acd3df8adfddfc457d1e21a444c24459237dd23565aa81e6fe723a1d265a"
+          "file": "sounds/cannot_build_here.wav",
+          "label": "Cannot build here.",
+          "sha256": "304b053a84226993fb954573b16652a23629f0206db45348d9a9dbcacad36e5e"
         }
       ]
     },
     "input.required": {
       "sounds": [
         {
-          "file": "sounds/new_message.wav",
-          "label": "Captain, a new message has arrived.",
-          "sha256": "44fd7e81dd26ec54a39a2609d42ff5078c5ccacfdd7d46f0bd78fb763f784ca1"
+          "file": "sounds/self_scan_advised.wav",
+          "label": "Performing a self-scan is advised.",
+          "sha256": "9f905df302513212e6981a43d2a0e14079adc0350a851da1895d46577cb39ead"
         }
       ]
     },
@@ -75,9 +75,9 @@
     "user.spam": {
       "sounds": [
         {
-          "file": "sounds/silent_running.wav",
-          "label": "Rig for silent running.",
-          "sha256": "0fab1695749f2f43d9b480fa7716f6800b61cb815cc3a1a7babb122e1ff081c4"
+          "file": "sounds/take_a_seat.wav",
+          "label": "Consider taking a seat and meditating.",
+          "sha256": "0490077f29147ddfd413d7782938d058c4016084ad7e901879ec46f832a9c14d"
         }
       ]
     }
