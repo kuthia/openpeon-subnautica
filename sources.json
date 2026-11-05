@@ -1,0 +1,91 @@
+{
+  "source_release": "https://github.com/rachit9876/subnautica-all-audio/releases/tag/v83031",
+  "dialogue_reference": "https://subnautica.fandom.com/wiki/Dialogue_(Subnautica)",
+  "note": "Dialogue mappings follow the wiki; audio bytes are unmodified WAV members from the public v83031 audio archive.",
+  "assets": [
+    {
+      "category": "session.start",
+      "file": "sounds/welcome_aboard.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:SeamothWelcome.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/wecome_1.wav",
+      "offset": 721893699,
+      "compressed_size": 265249,
+      "size": 297302,
+      "crc32": "0ba0d6ca",
+      "sha256": "84901793bc46425e8f6a14f2447b65406a30dcd2b0f6a7af29d2fe73d5909209"
+    },
+    {
+      "category": "task.acknowledge",
+      "file": "sounds/engine_powering_up.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsEngineOn.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
+      "member": "Cyclops[0]/AI_engine_up.wav",
+      "offset": 303471536,
+      "compressed_size": 402971,
+      "size": 439042,
+      "crc32": "bb008c65",
+      "sha256": "dea4076096d45d4c3d66ed2a39d880ed2969c626d69256f1af9ada4aa1efb5d0"
+    },
+    {
+      "category": "task.complete",
+      "file": "sounds/blueprint_acquired.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:New_blueprint_acquired.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/new_blueprint.wav",
+      "offset": 533692925,
+      "compressed_size": 293517,
+      "size": 341282,
+      "crc32": "05874b03",
+      "sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533"
+    },
+    {
+      "category": "task.error",
+      "file": "sounds/fire_detected.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsFireDetected.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
+      "member": "Cyclops[0]/fire_detected.wav",
+      "offset": 374547017,
+      "compressed_size": 383581,
+      "size": 434822,
+      "crc32": "0bb49e68",
+      "sha256": "1a55acd3df8adfddfc457d1e21a444c24459237dd23565aa81e6fe723a1d265a"
+    },
+    {
+      "category": "input.required",
+      "file": "sounds/new_message.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:RadioNewMessage.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Pod[0]/radio_msg_voice.wav",
+      "offset": 759384102,
+      "compressed_size": 382603,
+      "size": 468422,
+      "crc32": "4736bf83",
+      "sha256": "44fd7e81dd26ec54a39a2609d42ff5078c5ccacfdd7d46f0bd78fb763f784ca1"
+    },
+    {
+      "category": "resource.limit",
+      "file": "sounds/oxygen.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:OxygenBeep.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.zip",
+      "member": "Player[0]/beep oxygen.wav",
+      "offset": 116460253,
+      "compressed_size": 173025,
+      "size": 252750,
+      "crc32": "e63d485e",
+      "sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf"
+    },
+    {
+      "category": "user.spam",
+      "file": "sounds/silent_running.wav",
+      "dialogue_reference": "https://subnautica.fandom.com/wiki/File:CyclopsSilentRunning.ogg",
+      "source_url": "https://github.com/rachit9876/subnautica-all-audio/releases/download/v83031/OST.z01",
+      "member": "Cyclops[0]/silent_running.wav",
+      "offset": 423895695,
+      "compressed_size": 366092,
+      "size": 406634,
+      "crc32": "44e7b0a1",
+      "sha256": "0fab1695749f2f43d9b480fa7716f6800b61cb815cc3a1a7babb122e1ff081c4"
+    }
+  ]
+}
