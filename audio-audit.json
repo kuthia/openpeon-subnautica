@@ -1,0 +1,199 @@
+{
+  "format_version": 1,
+  "pack": {
+    "name": "subnautica_ai",
+    "version": "1.1.1",
+    "manifest_sha256": "c57866477d214cd106e1b282f9564d3c007d8ee032730b0b96654755c12bb696"
+  },
+  "tools": {
+    "python": "3.12.11",
+    "imageio_ffmpeg": "0.8.1",
+    "ffmpeg": "ffmpeg version 9.0 Copyright (c) 2000-2026 the FFmpeg developers",
+    "platform": "Darwin",
+    "architecture": "arm64"
+  },
+  "measurement": {
+    "filter": "loudnorm=print_format=json",
+    "loudness_fields": [
+      "input_i",
+      "input_tp"
+    ],
+    "pcm_metrics": "Whole-file sample peak and RMS across all channels",
+    "source_files_modified": false,
+    "short_term_loudness": "Not reported: these clips are shorter than the 3-second window"
+  },
+  "policy": {
+    "target_lufs_integrated": -20.0,
+    "loudness_tolerance_lu": 0.1,
+    "max_true_peak_dbtp": -2.0,
+    "max_loudness_spread_lu": 0.2
+  },
+  "summary": {
+    "sound_count": 7,
+    "min_lufs_integrated": -20.02,
+    "max_lufs_integrated": -19.97,
+    "median_lufs_integrated": -19.98,
+    "loudness_spread_lu": 0.05,
+    "max_true_peak_dbtp": -2.98
+  },
+  "checks": {
+    "passed": true,
+    "errors": []
+  },
+  "files": [
+    {
+      "file": "sounds/blueprint_acquired.wav",
+      "categories": [
+        "task.complete"
+      ],
+      "sha256": "4ad0ca443a42c27d004d56f9c2c84e8d045e07f65791bf2d9a41e2065f999c54",
+      "duration_seconds": 1.7772708333333334,
+      "frames": 85309,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -3.640456,
+      "rms_dbfs": -22.989323,
+      "lufs_integrated": -19.98,
+      "true_peak_dbtp": -3.63,
+      "loudnorm_input": {
+        "input_i": "-19.98",
+        "input_tp": "-3.63",
+        "input_lra": "0.00",
+        "input_thresh": "-29.98"
+      }
+    },
+    {
+      "file": "sounds/cannot_build_here.wav",
+      "categories": [
+        "task.error"
+      ],
+      "sha256": "2d55c2e58df7e61f70c309ed119156330811fc3dc672087a2c0bf8382aafec72",
+      "duration_seconds": 1.2,
+      "frames": 57600,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -2.982034,
+      "rms_dbfs": -22.614123,
+      "lufs_integrated": -19.97,
+      "true_peak_dbtp": -2.98,
+      "loudnorm_input": {
+        "input_i": "-19.97",
+        "input_tp": "-2.98",
+        "input_lra": "0.00",
+        "input_thresh": "-29.97"
+      }
+    },
+    {
+      "file": "sounds/good_luck.wav",
+      "categories": [
+        "session.start"
+      ],
+      "sha256": "906bf773677bc1c3b3144a377ba6d5651005e83d1264867c99cab80e7b79b807",
+      "duration_seconds": 0.8,
+      "frames": 38400,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -7.651643,
+      "rms_dbfs": -22.787823,
+      "lufs_integrated": -20.02,
+      "true_peak_dbtp": -7.65,
+      "loudnorm_input": {
+        "input_i": "-20.02",
+        "input_tp": "-7.65",
+        "input_lra": "0.00",
+        "input_thresh": "-30.02"
+      }
+    },
+    {
+      "file": "sounds/integrating_data.wav",
+      "categories": [
+        "task.acknowledge"
+      ],
+      "sha256": "d70247f2f3871905c08abd488f7c3d5b0662c1a65e14d6e839f0792b217cd1e9",
+      "duration_seconds": 2.122916666666667,
+      "frames": 101900,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -8.070313,
+      "rms_dbfs": -22.935164,
+      "lufs_integrated": -19.98,
+      "true_peak_dbtp": -8.05,
+      "loudnorm_input": {
+        "input_i": "-19.98",
+        "input_tp": "-8.05",
+        "input_lra": "0.00",
+        "input_thresh": "-29.98"
+      }
+    },
+    {
+      "file": "sounds/oxygen.wav",
+      "categories": [
+        "resource.limit"
+      ],
+      "sha256": "a80072a6e3987b412ec4d5adab3c970163fb23d078a02687b9b9c224cf3c4cec",
+      "duration_seconds": 1.3161666666666667,
+      "frames": 63176,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -5.140084,
+      "rms_dbfs": -23.340109,
+      "lufs_integrated": -20.0,
+      "true_peak_dbtp": -5.13,
+      "loudnorm_input": {
+        "input_i": "-20.00",
+        "input_tp": "-5.13",
+        "input_lra": "0.00",
+        "input_thresh": "-30.00"
+      }
+    },
+    {
+      "file": "sounds/self_scan_advised.wav",
+      "categories": [
+        "input.required"
+      ],
+      "sha256": "31d926146279e35d287ab1d570e7ebb50711a09468d5b57040b122af5d8585fe",
+      "duration_seconds": 2.327583333333333,
+      "frames": 111724,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -7.500095,
+      "rms_dbfs": -23.415898,
+      "lufs_integrated": -20.0,
+      "true_peak_dbtp": -7.49,
+      "loudnorm_input": {
+        "input_i": "-20.00",
+        "input_tp": "-7.49",
+        "input_lra": "0.00",
+        "input_thresh": "-30.00"
+      }
+    },
+    {
+      "file": "sounds/take_a_seat.wav",
+      "categories": [
+        "user.spam"
+      ],
+      "sha256": "81a084890349d29a5fdb09cda3d64745fc283fab4c4d7f7ed86c27b7bc0f284a",
+      "duration_seconds": 2.6,
+      "frames": 124800,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "peak_dbfs": -6.791228,
+      "rms_dbfs": -23.343755,
+      "lufs_integrated": -19.98,
+      "true_peak_dbtp": -6.79,
+      "loudnorm_input": {
+        "input_i": "-19.98",
+        "input_tp": "-6.79",
+        "input_lra": "0.00",
+        "input_thresh": "-29.98"
+      }
+    }
+  ]
+}

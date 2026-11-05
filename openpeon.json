@@ -2,7 +2,7 @@
   "cesp_version": "1.0",
   "name": "subnautica_ai",
   "display_name": "Subnautica PDA",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Seven notifications using the original Subnautica PDA voice, including the original Oxygen warning.",
   "author": {
     "name": "kuthia",
@@ -23,7 +23,7 @@
         {
           "file": "sounds/good_luck.wav",
           "label": "Good luck.",
-          "sha256": "6827a5584dd0e7652b6e2e428c8cda1db5c47c92599de5f0aafe9ef3b62a14c0"
+          "sha256": "906bf773677bc1c3b3144a377ba6d5651005e83d1264867c99cab80e7b79b807"
         }
       ]
     },
@@ -32,7 +32,7 @@
         {
           "file": "sounds/integrating_data.wav",
           "label": "Integrating new PDA data.",
-          "sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7"
+          "sha256": "d70247f2f3871905c08abd488f7c3d5b0662c1a65e14d6e839f0792b217cd1e9"
         }
       ]
     },
@@ -41,7 +41,7 @@
         {
           "file": "sounds/blueprint_acquired.wav",
           "label": "New blueprint acquired.",
-          "sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533"
+          "sha256": "4ad0ca443a42c27d004d56f9c2c84e8d045e07f65791bf2d9a41e2065f999c54"
         }
       ]
     },
@@ -50,7 +50,7 @@
         {
           "file": "sounds/cannot_build_here.wav",
           "label": "Cannot build here.",
-          "sha256": "304b053a84226993fb954573b16652a23629f0206db45348d9a9dbcacad36e5e"
+          "sha256": "2d55c2e58df7e61f70c309ed119156330811fc3dc672087a2c0bf8382aafec72"
         }
       ]
     },
@@ -59,7 +59,7 @@
         {
           "file": "sounds/self_scan_advised.wav",
           "label": "Performing a self-scan is advised.",
-          "sha256": "9f905df302513212e6981a43d2a0e14079adc0350a851da1895d46577cb39ead"
+          "sha256": "31d926146279e35d287ab1d570e7ebb50711a09468d5b57040b122af5d8585fe"
         }
       ]
     },
@@ -68,7 +68,7 @@
         {
           "file": "sounds/oxygen.wav",
           "label": "Oxygen.",
-          "sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf"
+          "sha256": "a80072a6e3987b412ec4d5adab3c970163fb23d078a02687b9b9c224cf3c4cec"
         }
       ]
     },
@@ -77,7 +77,7 @@
         {
           "file": "sounds/take_a_seat.wav",
           "label": "Consider taking a seat and meditating.",
-          "sha256": "0490077f29147ddfd413d7782938d058c4016084ad7e901879ec46f832a9c14d"
+          "sha256": "81a084890349d29a5fdb09cda3d64745fc283fab4c4d7f7ed86c27b7bc0f284a"
         }
       ]
     }

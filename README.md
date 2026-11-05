@@ -1,8 +1,8 @@
 # Subnautica PDA
 
 원작 Subnautica의 PDA 보이스로 통일한 CESP v1.0 음성 팩입니다.
-v1.1.0에서 기존 혼합 구성의 5개 음원을 PDA 대사로 교체했습니다.
-자원 부족의 산소 경고와 작업 완료의 설계도 획득 음원은 원본 바이트를 유지했습니다.
+v1.1.0에서 7개 이벤트를 PDA 대사로 통일했고, v1.1.1에서 음원별 음량을 맞췄습니다.
+자원 부족의 산소 경고와 작업 완료의 설계도 획득을 포함해 대사 구성은 유지합니다.
 팩 ID는 기존 설치에서 계속 사용할 수 있도록 `subnautica_ai`를 유지합니다.
 개인 사용을 위한 공개 저장소이며 OpenPeon 레지스트리 제출은 보류 중입니다.
 
@@ -25,10 +25,32 @@ v1.1.0에서 기존 혼합 구성의 5개 음원을 PDA 대사로 교체했습�
 
 출력은 모두 48 kHz / 16-bit PCM / stereo WAV입니다.
 시작·오류·입력 요청·연속 입력의 4개 파일은 원본의 완결문장을 프레임 단위로 잘랐습니다.
-선택된 PCM 프레임은 그대로 보존하며, 원본과 출력의 체크섬을 각각 기록했습니다.
+문장 구간을 선택한 뒤 음원별로 일정한 gain을 적용하며, 원본과 출력의 체크섬을 각각 기록했습니다.
 잘라낸 4개 문장은 무음 경계와 음성 인식으로 앞뒤 문장 혼입·단어 누락을 점검했습니다.
-음원 전체 크기는 2,331,950 bytes입니다.
+음원 전체 크기는 2,331,944 bytes입니다.
 `preview.html`을 브라우저로 열면 별도 서버 없이 개별 음원을 재생할 수 있습니다.
+
+## 음량 기준과 결과
+
+임진록 팩의 [PR 리뷰](https://github.com/PeonPing/registry/pull/385#issuecomment-6652251572)는 true peak가 -0.5 dBTP 이상인 음원에 경고를 표시했습니다.
+이 팩은 개인 알림용 목표를 약 -20 LUFS, true peak 상한을 -2 dBTP로 정했습니다.
+이 값은 CESP의 필수 음량 기준이 아니라 이 팩의 선택입니다.
+측정은 레지스트리와 동일한 FFmpeg `loudnorm`의 입력 측정값을 사용합니다.
+
+| 이벤트 | 적용 gain | 이전 LUFS | 현재 LUFS | 현재 true peak |
+|---|---:|---:|---:|---:|
+| 세션 시작 | -2.54 dB | -17.46 | -20.02 | -7.65 dBTP |
+| 작업 접수 | -8.07 dB | -11.93 | -19.98 | -8.05 dBTP |
+| 작업 완료 | -3.64 dB | -16.36 | -19.98 | -3.63 dBTP |
+| 작업 오류 | +0.27 dB | -20.27 | -19.97 | -2.98 dBTP |
+| 입력 필요 | -5.21 dB | -14.79 | -20.00 | -7.49 dBTP |
+| 자원 부족 | -5.14 dB | -14.86 | -20.00 | -5.13 dBTP |
+| 연속 입력 | +3.67 dB | -23.67 | -19.98 | -6.79 dBTP |
+
+음원 간 편차는 11.74 LU에서 0.05 LU로 줄었고, 최대 true peak는 +0.02 dBTP에서 -2.98 dBTP로 낮아졌습니다.
+산소 경고의 경고음과 목소리에도 같은 gain을 적용했습니다.
+실제 결과와 파일별 체크섬·측정 도구 버전은 [audio-audit.json](audio-audit.json)에 기록합니다.
+모든 음원이 3초 미만이라 통합 LUFS로 비교하며, 이 수치만으로 청감을 완전히 설명할 수는 없습니다.
 
 ## 검증 및 재현
 
@@ -38,16 +60,21 @@ Python 환경과 의존성은 uv로 관리합니다.
 uv run --locked --script scripts/pack.py check
 uv run --locked --script scripts/pack.py build
 uv run --locked --script scripts/pack.py archive
+uv run --locked --script scripts/audit_audio.py --check --output audio-audit.json
 ```
 
 - `check`: 포함된 공식 스키마, 매니페스트 매핑, 보이스 분류, SHA-256, CRC32, PCM 형식, 길이·크기 제한을 검증합니다. 의존성이 준비된 환경에서는 네트워크 없이 실행됩니다.
-- `build`: 누락된 WAV만 `sources.json`의 고정 출처에서 복원하고 지정된 프레임 구간을 재현합니다. 기존 파일의 체크섬이 다르면 덮어쓰지 않고 실패합니다.
-- `archive`: 검증 후 `dist/subnautica_ai-1.1.0.zip`을 만듭니다. ZIP 루트에 매니페스트와 `sounds/`가 놓입니다.
+- `build`: 누락된 WAV만 `sources.json`의 고정 출처에서 복원하고 문장 구간과 gain을 재현합니다. 기존 파일의 체크섬이 다르면 덮어쓰지 않고 실패합니다.
+- `archive`: 검증 후 `dist/subnautica_ai-1.1.1.zip`을 만듭니다. ZIP 루트에 매니페스트와 `sounds/`가 놓입니다.
+- `audit_audio.py`: 고정된 FFmpeg로 LUFS와 true peak를 측정하고 음량 목표를 검사합니다. 이 스크립트는 음원을 수정하지 않습니다.
 
 복원 시 공개 오디오 ZIP에서 필요한 byte range만 받아 전체 아카이브를 다운로드하지 않습니다.
 서버가 Range를 무시하거나 출처의 파일이 변경되면 실패합니다.
 `source_size/source_crc32/source_sha256`는 원본, `size/crc32/sha256`는 출력에 해당합니다.
 `trim.start_frame`은 포함, `trim.end_frame`은 제외하는 원본 48 kHz 프레임 위치입니다.
+`gain_millidb`는 문장 구간에 적용할 일정한 음량 배율을 0.001 dB 단위로 기록합니다.
+gain은 Q32 배율로 변환하고 PCM16을 가장 가까운 값으로 반올림하며, 정확히 중간이면 0에서 먼 쪽을 택합니다.
+압축기나 피크 리미터를 거치지 않고 일정한 gain만 적용합니다.
 매니페스트와 실제 파일을 함께 보관하면 복원 작업 없이 사용할 수 있습니다.
 
 ## 로컬 설치

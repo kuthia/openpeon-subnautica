@@ -5,12 +5,15 @@
 """Build, verify, and archive the sound pack from its pinned source records."""
 
 import argparse
+from array import array
+from decimal import Decimal, ROUND_HALF_UP, localcontext
 import hashlib
 import io
 import json
 from pathlib import Path
 import re
 import struct
+import sys
 import tempfile
 import urllib.request
 import wave
@@ -45,6 +48,13 @@ def load_pack():
     return manifest, sources
 
 
+def asset_gain(asset):
+    gain = asset.get("gain_millidb", 0)
+    if type(gain) is not int or not -60000 <= gain <= 60000:
+        raise ValueError(f"Invalid gain_millidb: {asset['file']}")
+    return gain
+
+
 def source_integrity(asset):
     fields = ("size", "crc32", "sha256")
     present = [f"source_{field}" in asset for field in fields]
@@ -52,8 +62,8 @@ def source_integrity(asset):
         raise ValueError(f"Incomplete source integrity record: {asset['file']}")
     if all(present):
         return {field: asset[f"source_{field}"] for field in fields}
-    if "trim" in asset:
-        raise ValueError(f"Trimmed audio requires source integrity: {asset['file']}")
+    if "trim" in asset or asset_gain(asset) != 0:
+        raise ValueError(f"Edited audio requires source integrity: {asset['file']}")
     return {field: asset[field] for field in fields}
 
 
@@ -84,6 +94,7 @@ def validate_sources(sources):
         raise ValueError("Invalid source voice policy")
     for asset in assets:
         pack_path(asset["file"])
+        asset_gain(asset)
         if voice is not None and asset.get("voice") != voice:
             raise ValueError(f"Source voice policy mismatch: {asset['file']}")
         for name, integrity in (("output", asset), ("source", source_integrity(asset))):
@@ -112,17 +123,48 @@ def verify_pcm(audio, name):
         raise ValueError(f"Expected uncompressed 48 kHz PCM: {name}")
 
 
+def apply_gain(frames, gain, name):
+    """Apply a deterministic Q32 constant gain to little-endian PCM16 samples."""
+    if gain == 0:
+        return frames
+    with localcontext() as context:
+        context.prec = 50
+        context.rounding = ROUND_HALF_UP
+        factor = int(
+            ((Decimal(10) ** (Decimal(gain) / Decimal(20000))) * Decimal(1 << 32))
+            .to_integral_value(rounding=ROUND_HALF_UP)
+        )
+    samples = array("h")
+    if samples.itemsize != 2:
+        raise ValueError("PCM16 processing requires 16-bit array samples")
+    samples.frombytes(frames)
+    if sys.byteorder != "little":
+        samples.byteswap()
+    for index, sample in enumerate(samples):
+        value = (abs(sample) * factor + (1 << 31)) >> 32
+        if sample < 0:
+            value = -value
+        if not -32768 <= value <= 32767:
+            raise ValueError(f"Constant gain would overflow PCM16: {name}")
+        samples[index] = value
+    if sys.byteorder != "little":
+        samples.byteswap()
+    return samples.tobytes()
+
+
 def render_output(data, asset):
-    """Crop native PCM frames, preserving their values and the sample rate."""
+    """Verify the source, crop native frames, then apply the recorded gain."""
+    gain = asset_gain(asset)
     verify_bytes(data, asset, source=True)
-    if "trim" in asset:
+    if "trim" in asset or gain != 0:
         with wave.open(io.BytesIO(data), "rb") as audio:
             verify_pcm(audio, asset["file"])
-            start, end = trim_bounds(asset, audio.getnframes())
+            start, end = trim_bounds(asset, audio.getnframes()) or (0, audio.getnframes())
             audio.setpos(start)
             frames = audio.readframes(end - start)
             if len(frames) != (end - start) * 4:
                 raise ValueError(f"Truncated source PCM: {asset['file']}")
+        frames = apply_gain(frames, gain, asset["file"])
         buffer = io.BytesIO()
         with wave.open(buffer, "wb") as output:
             output.setnchannels(2)

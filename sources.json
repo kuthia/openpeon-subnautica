@@ -2,7 +2,7 @@
   "source_release": "https://github.com/rachit9876/subnautica-all-audio/releases/tag/v83031",
   "dialogue_reference": "https://subnautica.fandom.com/wiki/Dialogue_(Subnautica)",
   "voice": "subnautica_pda",
-  "note": "Original Subnautica PDA dialogue only. All assets come from the Player audio bank. Four excerpts preserve selected PCM frames; source and output checksums are recorded separately.",
+  "note": "Seven original Subnautica PDA clips. Sentence trims and per-clip linear PCM gain are reproducible; original source and processed output integrity are recorded separately.",
   "assets": [
     {
       "category": "session.start",
@@ -21,8 +21,9 @@
         "end_frame": 921600
       },
       "size": 153644,
-      "crc32": "0b32e7e2",
-      "sha256": "6827a5584dd0e7652b6e2e428c8cda1db5c47c92599de5f0aafe9ef3b62a14c0"
+      "crc32": "34a05f40",
+      "sha256": "906bf773677bc1c3b3144a377ba6d5651005e83d1264867c99cab80e7b79b807",
+      "gain_millidb": -2540
     },
     {
       "category": "task.acknowledge",
@@ -36,9 +37,10 @@
       "source_size": 407646,
       "source_crc32": "e2f91a30",
       "source_sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7",
-      "size": 407646,
-      "crc32": "e2f91a30",
-      "sha256": "dba5b2610949dbd1b76c8e80105b599abe6372d8026715fc3e6029d92a7075f7"
+      "size": 407644,
+      "crc32": "049fcc3e",
+      "sha256": "d70247f2f3871905c08abd488f7c3d5b0662c1a65e14d6e839f0792b217cd1e9",
+      "gain_millidb": -8070
     },
     {
       "category": "task.complete",
@@ -48,13 +50,14 @@
       "member": "Player[0]/new_blueprint.wav",
       "offset": 533692925,
       "compressed_size": 293517,
-      "size": 341282,
-      "crc32": "05874b03",
-      "sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533",
+      "size": 341280,
+      "crc32": "dbed1c4d",
+      "sha256": "4ad0ca443a42c27d004d56f9c2c84e8d045e07f65791bf2d9a41e2065f999c54",
       "source_size": 341282,
       "source_crc32": "05874b03",
       "source_sha256": "b4117ebc73846031d5277b647b2a6e6fd80b9ff94fc1e6de75fe273091d61533",
-      "voice": "subnautica_pda"
+      "voice": "subnautica_pda",
+      "gain_millidb": -3640
     },
     {
       "category": "task.error",
@@ -73,8 +76,9 @@
         "end_frame": 57600
       },
       "size": 230444,
-      "crc32": "b89e5ac0",
-      "sha256": "304b053a84226993fb954573b16652a23629f0206db45348d9a9dbcacad36e5e"
+      "crc32": "8d8ed0ac",
+      "sha256": "2d55c2e58df7e61f70c309ed119156330811fc3dc672087a2c0bf8382aafec72",
+      "gain_millidb": 270
     },
     {
       "category": "input.required",
@@ -93,8 +97,9 @@
         "end_frame": 294124
       },
       "size": 446940,
-      "crc32": "32ed84d7",
-      "sha256": "9f905df302513212e6981a43d2a0e14079adc0350a851da1895d46577cb39ead"
+      "crc32": "29a77013",
+      "sha256": "31d926146279e35d287ab1d570e7ebb50711a09468d5b57040b122af5d8585fe",
+      "gain_millidb": -5210
     },
     {
       "category": "resource.limit",
@@ -104,13 +109,14 @@
       "member": "Player[0]/beep oxygen.wav",
       "offset": 116460253,
       "compressed_size": 173025,
-      "size": 252750,
-      "crc32": "e63d485e",
-      "sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf",
+      "size": 252748,
+      "crc32": "35beee7d",
+      "sha256": "a80072a6e3987b412ec4d5adab3c970163fb23d078a02687b9b9c224cf3c4cec",
       "source_size": 252750,
       "source_crc32": "e63d485e",
       "source_sha256": "bbc451ee50b2fc5b264a7a9fc30fb0a672d141d2c30363d1ae7a665e9953b9cf",
-      "voice": "subnautica_pda"
+      "voice": "subnautica_pda",
+      "gain_millidb": -5140
     },
     {
       "category": "user.spam",
@@ -129,8 +135,20 @@
         "end_frame": 249600
       },
       "size": 499244,
-      "crc32": "1a076313",
-      "sha256": "0490077f29147ddfd413d7782938d058c4016084ad7e901879ec46f832a9c14d"
+      "crc32": "c65de2b5",
+      "sha256": "81a084890349d29a5fdb09cda3d64745fc283fab4c4d7f7ed86c27b7bc0f284a",
+      "gain_millidb": 3670
     }
-  ]
+  ],
+  "audio_processing": {
+    "mode": "linear_pcm_gain_q32",
+    "target_lufs_integrated": -20.0,
+    "max_true_peak_dbtp": -2.0,
+    "loudness_tolerance_lu": 0.1,
+    "gain_unit": "millidecibel",
+    "rounding": "nearest, ties away from zero",
+    "review_reference": "https://github.com/PeonPing/registry/pull/385#issuecomment-6652251572",
+    "checker_reference": "https://github.com/PeonPing/registry/blob/728153f0cdd8d4aaed28d62299eea7eb88f20361/.github/scripts/quality-check.py#L155-L178",
+    "max_loudness_spread_lu": 0.2
+  }
 }
